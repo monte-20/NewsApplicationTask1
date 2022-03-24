@@ -5,8 +5,7 @@ Public Class WriteUtil
 
     Public Shared Sub WriteData(DataPath As String, Data As String)
         Try
-            Dim File As String = DataPath & Guid.NewGuid.ToString & ".txt"
-            fileWriter = New StreamWriter(File)
+            fileWriter = New StreamWriter(DataPath)
             fileWriter.Write(Data)
         Catch ex As IOException
             MessageBox.Show("Error Writing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -27,4 +26,14 @@ Public Class WriteUtil
         End Try
 
     End Sub
+    Public Shared Function CopyFile(fromPath As String, ByRef toPath As String) As Boolean
+        Try
+            toPath = toPath & fromPath.Substring(fromPath.LastIndexOf("."))
+            FileCopy(fromPath, toPath)
+            Return True
+        Catch ex As IOException
+            MessageBox.Show("Error Copying", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return False
+    End Function
 End Class

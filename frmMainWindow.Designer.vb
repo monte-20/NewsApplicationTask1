@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MainWindow
+Partial Class frmMainWindow
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -98,7 +98,7 @@ Partial Class MainWindow
         '
         Me.NewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArticilToolStripMenuItem, Me.ImageArticleToolStripMenuItem})
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'ArticilToolStripMenuItem
@@ -116,7 +116,7 @@ Partial Class MainWindow
         'NewUserToolStripMenuItem
         '
         Me.NewUserToolStripMenuItem.Name = "NewUserToolStripMenuItem"
-        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.NewUserToolStripMenuItem.Text = "New User..."
         '
         'ShowToolStripMenuItem
@@ -152,8 +152,8 @@ Partial Class MainWindow
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.41004!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.58996!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel4, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel2, 1, 0)
@@ -172,9 +172,9 @@ Partial Class MainWindow
         Me.Panel4.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Panel4.Controls.Add(Me.CreationDateTextBox)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(88, 29)
+        Me.Panel4.Location = New System.Drawing.Point(87, 29)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(371, 19)
+        Me.Panel4.Size = New System.Drawing.Size(372, 19)
         Me.Panel4.TabIndex = 3
         '
         'CreationDateTextBox
@@ -183,7 +183,7 @@ Partial Class MainWindow
         Me.CreationDateTextBox.Enabled = False
         Me.CreationDateTextBox.Location = New System.Drawing.Point(0, 0)
         Me.CreationDateTextBox.Name = "CreationDateTextBox"
-        Me.CreationDateTextBox.Size = New System.Drawing.Size(371, 20)
+        Me.CreationDateTextBox.Size = New System.Drawing.Size(372, 20)
         Me.CreationDateTextBox.TabIndex = 0
         '
         'Panel3
@@ -193,12 +193,12 @@ Partial Class MainWindow
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(3, 29)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(79, 19)
+        Me.Panel3.Size = New System.Drawing.Size(78, 19)
         Me.Panel3.TabIndex = 2
         '
         'CreationDateLabel
         '
-        Me.CreationDateLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.CreationDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.CreationDateLabel.AutoSize = True
         Me.CreationDateLabel.Location = New System.Drawing.Point(3, 3)
         Me.CreationDateLabel.Name = "CreationDateLabel"
@@ -211,9 +211,9 @@ Partial Class MainWindow
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Panel2.Controls.Add(Me.TitleTextBox)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(88, 3)
+        Me.Panel2.Location = New System.Drawing.Point(87, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(371, 20)
+        Me.Panel2.Size = New System.Drawing.Size(372, 20)
         Me.Panel2.TabIndex = 1
         '
         'TitleTextBox
@@ -222,7 +222,7 @@ Partial Class MainWindow
         Me.TitleTextBox.Enabled = False
         Me.TitleTextBox.Location = New System.Drawing.Point(0, 0)
         Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(371, 20)
+        Me.TitleTextBox.Size = New System.Drawing.Size(372, 20)
         Me.TitleTextBox.TabIndex = 0
         '
         'Panel1
@@ -232,12 +232,12 @@ Partial Class MainWindow
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(79, 20)
+        Me.Panel1.Size = New System.Drawing.Size(78, 20)
         Me.Panel1.TabIndex = 0
         '
         'TitleLabel
         '
-        Me.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.TitleLabel.AutoSize = True
         Me.TitleLabel.Location = New System.Drawing.Point(3, 3)
         Me.TitleLabel.Name = "TitleLabel"
@@ -311,8 +311,8 @@ Partial Class MainWindow
         'CategoryPanel
         '
         Me.CategoryPanel.ColumnCount = 2
-        Me.CategoryPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.41004!))
-        Me.CategoryPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.58996!))
+        Me.CategoryPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
+        Me.CategoryPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.CategoryPanel.Controls.Add(Me.Panel6, 0, 0)
         Me.CategoryPanel.Controls.Add(Me.Panel7, 1, 0)
         Me.CategoryPanel.Dock = System.Windows.Forms.DockStyle.Top
@@ -330,12 +330,12 @@ Partial Class MainWindow
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(3, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(79, 20)
+        Me.Panel6.Size = New System.Drawing.Size(78, 20)
         Me.Panel6.TabIndex = 1
         '
         'Label1
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(3, 3)
         Me.Label1.Name = "Label1"
@@ -347,9 +347,9 @@ Partial Class MainWindow
         '
         Me.Panel7.Controls.Add(Me.CategoryTextBox)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(88, 3)
+        Me.Panel7.Location = New System.Drawing.Point(87, 3)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(371, 20)
+        Me.Panel7.Size = New System.Drawing.Size(372, 20)
         Me.Panel7.TabIndex = 2
         '
         'CategoryTextBox
@@ -358,13 +358,14 @@ Partial Class MainWindow
         Me.CategoryTextBox.Enabled = False
         Me.CategoryTextBox.Location = New System.Drawing.Point(0, 0)
         Me.CategoryTextBox.Name = "CategoryTextBox"
-        Me.CategoryTextBox.Size = New System.Drawing.Size(371, 20)
+        Me.CategoryTextBox.Size = New System.Drawing.Size(372, 20)
         Me.CategoryTextBox.TabIndex = 0
         '
         'ItemList
         '
         Me.ItemList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Title, Me.CreationDate, Me.Description})
         Me.ItemList.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ItemList.FullRowSelect = True
         Me.ItemList.HideSelection = False
         Me.ItemList.Location = New System.Drawing.Point(11, 11)
         Me.ItemList.Name = "ItemList"
@@ -443,7 +444,7 @@ Partial Class MainWindow
         Me.TextBox9.Size = New System.Drawing.Size(371, 20)
         Me.TextBox9.TabIndex = 3
         '
-        'MainWindow
+        'frmMainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -454,9 +455,9 @@ Partial Class MainWindow
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MinimumSize = New System.Drawing.Size(500, 700)
-        Me.Name = "MainWindow"
+        Me.Name = "frmMainWindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "FileWorx"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)

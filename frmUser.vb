@@ -1,4 +1,5 @@
-﻿Public Class UserForm
+﻿Public Class frmUser
+    Dim user As New ClsUser
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
         DialogResult = DialogResult.Cancel
 
@@ -11,10 +12,9 @@
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
-        If ValidateInfo(NameTextBox.Text) AndAlso
-            ValidateInfo(UsernameTextBox.Text) AndAlso
-            ValidateInfo(PasswordTextBox.Text) Then
-            AddUser()
+        If validateForm() Then
+            saveData()
+            ClsUser.AddUser(user)
             DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Missing Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -22,14 +22,18 @@
 
     End Sub
 
-    Private Sub AddUser()
-        Dim DataPath As String = "G:\Visual Studio\Visual Basic\NewsTask1\Data\Users\"
-        Dim Data = NameTextBox.Text & "," &
-                    UsernameTextBox.Text & "," &
-                    PasswordTextBox.Text
-        WriteUtil.WriteData(DataPath, Data)
-
+    Private Sub saveData()
+        user.Name = NameTextBox.Text
+        user.Username = UsernameTextBox.Text
+        user.Password = PasswordTextBox.Text
     End Sub
+
+    Private Function validateForm() As Boolean
+        Return ValidateInfo(NameTextBox.Text) AndAlso
+            ValidateInfo(UsernameTextBox.Text) AndAlso
+            ValidateInfo(PasswordTextBox.Text)
+    End Function
+
 
     Private Function ValidateInfo(text As String) As Boolean
         Return text <> String.Empty

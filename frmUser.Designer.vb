@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class UserForm
+Partial Class frmUser
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -141,6 +141,7 @@ Partial Class UserForm
         Me.Controls.Add(Me.UsernameTextBox)
         Me.Controls.Add(Me.NameTextBox)
         Me.Controls.Add(Me.Panel5)
+        Me.MaximumSize = New System.Drawing.Size(300, 250)
         Me.MinimumSize = New System.Drawing.Size(300, 250)
         Me.Name = "UserForm"
         Me.Text = "UserForm"

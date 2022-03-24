@@ -73,27 +73,33 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BusinessBaseClass.vb" />
+    <Compile Include="Models\clsMainWindow.vb" />
+    <Compile Include="Models\clsNews.vb" />
+    <Compile Include="Models\clsPhotos.vb" />
+    <Compile Include="Models\clsUser.vb" />
     <Compile Include="DAO\ReadUtil.vb" />
     <Compile Include="DAO\WriteUtil.vb" />
-    <Compile Include="MainWindow.vb">
+    <Compile Include="frmMainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.vb">
-      <DependentUpon>MainWindow.vb</DependentUpon>
+    <Compile Include="frmMainWindow.Designer.vb">
+      <DependentUpon>frmMainWindow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Article.Designer.vb">
-      <DependentUpon>Article.vb</DependentUpon>
+    <Compile Include="frmNews.Designer.vb">
+      <DependentUpon>frmNews.vb</DependentUpon>
     </Compile>
-    <Compile Include="Article.vb">
+    <Compile Include="frmNews.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImageArticle.Designer.vb">
-      <DependentUpon>ImageArticle.vb</DependentUpon>
+    <Compile Include="frmPhotos.Designer.vb">
+      <DependentUpon>frmPhotos.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImageArticle.vb">
+    <Compile Include="frmPhotos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Models\NewsBaseClass.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -109,22 +115,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserForm.Designer.vb">
-      <DependentUpon>UserForm.vb</DependentUpon>
+    <Compile Include="frmUser.Designer.vb">
+      <DependentUpon>frmUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="UserForm.vb">
+    <Compile Include="frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SharedConstantClass.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.vb</DependentUpon>
+    <EmbeddedResource Include="frmMainWindow.resx">
+      <DependentUpon>frmMainWindow.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Article.resx">
-      <DependentUpon>Article.vb</DependentUpon>
+    <EmbeddedResource Include="frmNews.resx">
+      <DependentUpon>frmNews.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImageArticle.resx">
-      <DependentUpon>ImageArticle.vb</DependentUpon>
+    <EmbeddedResource Include="frmPhotos.resx">
+      <DependentUpon>frmPhotos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -132,8 +139,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm.resx">
-      <DependentUpon>UserForm.vb</DependentUpon>
+    <EmbeddedResource Include="frmUser.resx">
+      <DependentUpon>frmUser.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

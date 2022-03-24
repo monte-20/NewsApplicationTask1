@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ImageArticle
+Partial Class frmPhotos
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -88,8 +88,8 @@ Partial Class ImageArticle
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.36564!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.63436!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.DescriptionTextBox, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel6, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel7, 0, 1)
@@ -109,10 +109,10 @@ Partial Class ImageArticle
         'DescriptionTextBox
         '
         Me.DescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(100, 39)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(114, 39)
         Me.DescriptionTextBox.MaxLength = 255
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(351, 20)
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(337, 20)
         Me.DescriptionTextBox.TabIndex = 4
         '
         'Panel6
@@ -121,17 +121,18 @@ Partial Class ImageArticle
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(3, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(91, 25)
+        Me.Panel6.Size = New System.Drawing.Size(105, 25)
         Me.Panel6.TabIndex = 0
         '
         'Label1
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(15, 8)
+        Me.Label1.Location = New System.Drawing.Point(0, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 17)
+        Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.Label1.Size = New System.Drawing.Size(55, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Title"
         '
@@ -141,17 +142,18 @@ Partial Class ImageArticle
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(3, 34)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(91, 25)
+        Me.Panel7.Size = New System.Drawing.Size(105, 25)
         Me.Panel7.TabIndex = 1
         '
         'Label3
         '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(15, 8)
+        Me.Label3.Location = New System.Drawing.Point(0, 8)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 17)
+        Me.Label3.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.Label3.Size = New System.Drawing.Size(99, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Description"
         '
@@ -161,15 +163,14 @@ Partial Class ImageArticle
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(3, 65)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(91, 291)
+        Me.Panel8.Size = New System.Drawing.Size(105, 291)
         Me.Panel8.TabIndex = 2
         '
         'Label2
         '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 7)
+        Me.Label2.Location = New System.Drawing.Point(19, 11)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 17)
         Me.Label2.TabIndex = 1
@@ -178,20 +179,20 @@ Partial Class ImageArticle
         'TitleTextBox
         '
         Me.TitleTextBox.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TitleTextBox.Location = New System.Drawing.Point(100, 8)
+        Me.TitleTextBox.Location = New System.Drawing.Point(114, 8)
         Me.TitleTextBox.MaxLength = 255
         Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(351, 20)
+        Me.TitleTextBox.Size = New System.Drawing.Size(337, 20)
         Me.TitleTextBox.TabIndex = 3
         '
         'BodyTextBox
         '
         Me.BodyTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BodyTextBox.Location = New System.Drawing.Point(100, 65)
+        Me.BodyTextBox.Location = New System.Drawing.Point(114, 65)
         Me.BodyTextBox.MaxLength = 10000
         Me.BodyTextBox.Multiline = True
         Me.BodyTextBox.Name = "BodyTextBox"
-        Me.BodyTextBox.Size = New System.Drawing.Size(351, 291)
+        Me.BodyTextBox.Size = New System.Drawing.Size(337, 291)
         Me.BodyTextBox.TabIndex = 5
         '
         'Panel5
@@ -321,7 +322,7 @@ Partial Class ImageArticle
         Me.PathTextBox.Size = New System.Drawing.Size(349, 32)
         Me.PathTextBox.TabIndex = 0
         '
-        'ImageArticle
+        'frmPhotos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -330,7 +331,7 @@ Partial Class ImageArticle
         Me.ClientSize = New System.Drawing.Size(484, 461)
         Me.Controls.Add(Me.TabControl1)
         Me.MinimumSize = New System.Drawing.Size(500, 500)
-        Me.Name = "ImageArticle"
+        Me.Name = "frmPhotos"
         Me.Padding = New System.Windows.Forms.Padding(8)
         Me.Text = "ImageArticle"
         Me.TabControl1.ResumeLayout(False)
