@@ -2,13 +2,19 @@
     Private mainWindow As clsMainWindow
     Private Sub ArticilToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArticilToolStripMenuItem.Click
         Dim articleDialog As New frmNews()
-        articleDialog.ShowDialog()
+        If articleDialog.ShowDialog() <> DialogResult.Cancel Then
+            Dim items As List(Of ListViewItem) = mainWindow.getItems
+            showItems(items)
+        End If
 
     End Sub
 
     Private Sub ImageArticleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImageArticleToolStripMenuItem.Click
         Dim imageArticleDialog As New frmPhotos()
-        imageArticleDialog.ShowDialog()
+        If imageArticleDialog.ShowDialog() <> DialogResult.Cancel Then
+            Dim items As List(Of ListViewItem) = mainWindow.getItems
+            showItems(items)
+        End If
     End Sub
 
     Private Sub NewUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewUserToolStripMenuItem.Click
@@ -55,8 +61,8 @@
     Private Sub CheckLayout(text As String)
         If IO.File.Exists(text) Then
             SwitchLayout()
-            'ImageBox.ImageLocation = text
-            'ImageBox.Load()
+            ImageBox.ImageLocation = text
+            ImageBox.Load()
         Else
             CategoryTextBox.Text = text
         End If
