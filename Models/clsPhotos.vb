@@ -18,6 +18,7 @@
     Public Function BrowsePhoto() As String
         Dim result As DialogResult
         Using fileChooser As New OpenFileDialog
+            fileChooser.Filter = "Bitmap|*.bmp|JPEG|*.jpg|PNG|*.png"
             result = fileChooser.ShowDialog
             Photo = fileChooser.FileName
         End Using

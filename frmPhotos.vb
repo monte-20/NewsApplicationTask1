@@ -8,6 +8,12 @@
     Public Sub New(obj As ClsPhotos)
         InitializeComponent()
         PhotoObj = obj
+        TitleTextBox.Text = PhotoObj.Title
+        DescriptionTextBox.Text = PhotoObj.Description
+        PathTextBox.Text = PhotoObj.Photo
+        ImageBox.ImageLocation = PhotoObj.Photo
+        ImageBox.Load()
+        BodyTextBox.Text = PhotoObj.Body
     End Sub
 
 
@@ -17,9 +23,11 @@
 
     Private Sub BrowseBtn_Click(sender As Object, e As EventArgs) Handles BrowseBtn.Click
         Dim FileName As String = PhotoObj.BrowsePhoto
-        PathTextBox.Text = FileName
-        ImageBox.ImageLocation = FileName
-        ImageBox.Load()
+        If FileName <> String.Empty Then
+            PathTextBox.Text = FileName
+            ImageBox.ImageLocation = FileName
+            ImageBox.Load()
+        End If
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click

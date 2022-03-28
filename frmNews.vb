@@ -1,5 +1,4 @@
-﻿
-Public Class frmNews
+﻿Public Class frmNews
     Public Enum Category
         General
         Sports
@@ -7,9 +6,9 @@ Public Class frmNews
         Politics
     End Enum
 
-
     Private news As ClsNews
-    Private shared categoryData As List(Of Category) = [Enum].GetValues(GetType(Category)).Cast(Of Category)().ToList()
+    Private Shared categoryData As List(Of Category) = [Enum].GetValues(GetType(Category)).Cast(Of Category)().ToList()
+
     Public Shared ReadOnly Property Categories() As List(Of Category)
         Get
             Return categoryData
@@ -30,7 +29,8 @@ Public Class frmNews
         Me.news = news
         TitleTextBox.Text = news.Title
         DescriptionTextBox.Text = news.Description
-        CategoryCombo.SelectedItem = news.Category
+        Dim cat = DirectCast([Enum].Parse(GetType(Category), news.Category), Category)
+        CategoryCombo.SelectedIndex = categoryData.IndexOf(cat)
         BodyTextBox.Text = news.Body
     End Sub
 
@@ -41,7 +41,7 @@ Public Class frmNews
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
 
         If ValidateForm() Then
-            SaveFormData
+            SaveFormData()
             ClsNews.AddNews(news)
             DialogResult = DialogResult.OK
         Else
