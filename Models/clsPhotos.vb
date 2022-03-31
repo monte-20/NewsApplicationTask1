@@ -35,7 +35,7 @@ Public Class ClsPhotos
     End Sub
     Private Sub copyPhoto()
         Dim photoPath As String = clsShared.PhotosPath & ID.ToString & "." & Photo.Split(".").Last
-        File.Copy(Photo, photoPath)
+        File.Copy(Photo, photoPath, True)
         Photo = photoPath
     End Sub
     Public Sub Read(id As Guid)
