@@ -19,7 +19,6 @@
         InitializeComponent()
         CategoryCombo.DataSource = categoryData
         news = New ClsNews
-
     End Sub
 
     Public Sub New(news As ClsNews)
@@ -42,7 +41,7 @@
 
         If ValidateForm() Then
             SaveFormData()
-            ClsNews.AddNews(news)
+            news.Update()
             DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Missing Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -53,7 +52,8 @@
     Private Sub SaveFormData()
         news.Title = TitleTextBox.Text
         news.Description = DescriptionTextBox.Text
-        news.Category = CategoryCombo.Text
+        Dim cat = DirectCast([Enum].Parse(GetType(Category), CategoryCombo.Text), Category)
+        news.Category = cat
         news.Body = BodyTextBox.Text
 
     End Sub

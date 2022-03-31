@@ -1,5 +1,7 @@
-﻿Public Class ClsUser
-    Inherits BusinessBaseClass
+﻿Imports System.IO
+
+Public Class ClsUser
+    Inherits clsBase
 
     Private NameProp As String
     Public Property Name() As String
@@ -31,31 +33,38 @@
         End Set
     End Property
 
-    Public Shared Sub AddUser(user As ClsUser)
-        Dim DataPath As String = SharedConstantClass.UserPath & user.getID.ToString & ".txt"
-        Dim Data = tofile(user)
-        WriteUtil.WriteData(DataPath, Data)
-
+    Public Sub Update()
+        Dim DataPath As String = clsShared.UserPath & ID.ToString & ".txt"
+        Dim Data = ConvertToString(Me)
+        File.WriteAllText(DataPath, Data)
     End Sub
-
-    Public Shared Function tofile(user As ClsUser)
-        Dim seperator As String = SharedConstantClass.Seperator
-        Dim data As String = user.getID.ToString & seperator &
-                    user.getCreationTime & seperator &
+    Public Sub Read(id As Guid)
+        Dim dataPath As String = clsShared.UserPath & id.ToString & ".txt"
+        Dim data As String
+        data = File.ReadAllText(dataPath)
+        Parse(data)
+    End Sub
+    Public Sub Delete(id As Guid)
+        Dim dataPath As String = clsShared.UserPath & id.ToString & ".txt"
+        File.Delete(dataPath)
+    End Sub
+    Public Shared Function ConvertToString(user As ClsUser)
+        Dim seperator As String = clsShared.Seperator
+        Dim data As String = user.ID.ToString & seperator &
+                    user.CreationTime & seperator &
                     user.Name & seperator &
                     user.Username & seperator &
                     user.Password
         Return data
     End Function
 
-    Public Shared Function FromFile(file As String) As ClsUser
-        Dim data() As String = file.Split(New String() {SharedConstantClass.Seperator}, StringSplitOptions.None)
-        Dim obj As New ClsUser
-        obj.setID(data(0))
-        obj.setCreationTime(data(1))
-        obj.Name = data(2)
-        obj.Username = data(3)
-        obj.Password = data(4)
-        Return obj
-    End Function
+    Public Sub Parse(file As String)
+        Dim data() As String = file.Split(New String() {clsShared.Seperator}, StringSplitOptions.None)
+        Guid.TryParse(data(0), ID)
+        Date.TryParse(data(1), CreationTime)
+        Name = data(2)
+        Username = data(3)
+        Password = data(4)
+
+    End Sub
 End Class

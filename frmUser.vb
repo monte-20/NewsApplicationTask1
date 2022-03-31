@@ -1,8 +1,12 @@
 ﻿Public Class frmUser
-    Dim user As New ClsUser
+    Private user As ClsUser
+
+    Sub New()
+        InitializeComponent()
+        user = New ClsUser
+    End Sub
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
         DialogResult = DialogResult.Cancel
-
     End Sub
 
     Private Sub UserForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,7 +18,7 @@
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         If validateForm() Then
             saveData()
-            ClsUser.AddUser(user)
+            user.Update()
             DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Missing Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

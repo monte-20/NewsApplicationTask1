@@ -1,39 +1,43 @@
 ﻿Public Class frmPhotos
-    Dim PhotoObj As ClsPhotos
+    Private photos As ClsPhotos
     Public Sub New()
         InitializeComponent()
-        PhotoObj = New ClsPhotos
+        photos = New ClsPhotos
     End Sub
 
     Public Sub New(obj As ClsPhotos)
         InitializeComponent()
-        PhotoObj = obj
-        TitleTextBox.Text = PhotoObj.Title
-        DescriptionTextBox.Text = PhotoObj.Description
-        PathTextBox.Text = PhotoObj.Photo
-        ImageBox.ImageLocation = PhotoObj.Photo
-        ImageBox.Load()
-        BodyTextBox.Text = PhotoObj.Body
+        photos = obj
+        TitleTextBox.Text = photos.Title
+        DescriptionTextBox.Text = photos.Description
+        PathTextBox.Text = photos.Photo
+        showphoto(photos.Photo)
+        BodyTextBox.Text = photos.Body
     End Sub
 
-
+    Private Sub showphoto(path As String)
+        Using imageFileStream As New IO.FileStream(path, IO.FileMode.Open, IO.FileAccess.Read)
+            Dim readInImage As Image = Image.FromStream(imageFileStream)
+            ImageBox.Image = readInImage
+        End Using
+    End Sub
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
         DialogResult = DialogResult.Cancel
     End Sub
 
     Private Sub BrowseBtn_Click(sender As Object, e As EventArgs) Handles BrowseBtn.Click
-        Dim FileName As String = PhotoObj.BrowsePhoto
+        Dim FileName As String = photos.BrowsePhoto
         If FileName <> String.Empty Then
             PathTextBox.Text = FileName
-            ImageBox.ImageLocation = FileName
-            ImageBox.Load()
+            showphoto(FileName)
         End If
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         If ValidateForm() Then
             SaveFormData()
-            ClsPhotos.AddPhoto(PhotoObj)
+
+            photos.Update()
             DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Missing Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -48,9 +52,10 @@
     End Function
 
     Private Sub SaveFormData()
-        PhotoObj.Title = TitleTextBox.Text
-        PhotoObj.Description = DescriptionTextBox.Text
-        PhotoObj.Body = BodyTextBox.Text
+        photos.Title = TitleTextBox.Text
+        photos.Description = DescriptionTextBox.Text
+        photos.Body = BodyTextBox.Text
+        photos.Photo = PathTextBox.Text
     End Sub
 
     Private Function ValidateInfo(text As String) As Boolean

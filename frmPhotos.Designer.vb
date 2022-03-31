@@ -333,7 +333,7 @@ Partial Class frmPhotos
         Me.MinimumSize = New System.Drawing.Size(500, 500)
         Me.Name = "frmPhotos"
         Me.Padding = New System.Windows.Forms.Padding(8)
-        Me.Text = "ImageArticle"
+        Me.Text = "Add Photo"
         Me.TabControl1.ResumeLayout(False)
         Me.InformationTab.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)

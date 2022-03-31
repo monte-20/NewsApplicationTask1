@@ -1,20 +1,19 @@
 ﻿Public Class frmMainWindow
     Private mainWindow As clsMainWindow
     Private items As List(Of ListViewItem)
-    Private photo As Image
-
-    Private Sub ArticilToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArticilToolStripMenuItem.Click
+    Private categoryDisplayed As Boolean
+    Private Sub NewsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewsToolStripMenuItem.Click
         Dim articleDialog As New frmNews()
         If articleDialog.ShowDialog() <> DialogResult.Cancel Then
-            showItems()
+            ShowItems()
         End If
 
     End Sub
 
-    Private Sub ImageArticleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImageArticleToolStripMenuItem.Click
+    Private Sub PhotoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PhotoToolStripMenuItem.Click
         Dim imageArticleDialog As New frmPhotos()
         If imageArticleDialog.ShowDialog() <> DialogResult.Cancel Then
-            showItems()
+            ShowItems()
         End If
     End Sub
 
@@ -23,19 +22,21 @@
         userDialog.ShowDialog()
     End Sub
 
-    Private Sub SwitchLayout()
-        If CategoryPanel.Visible Then
+    Private Sub DisplayCategory()
+        TabControl.TabPages.Remove(ImageTab)
+        CategoryPanel.Visible = True
+        categoryDisplayed = True
+    End Sub
+    Private Sub DisplayImage()
+        If categoryDisplayed Then
             TabControl.TabPages.Add(ImageTab)
             CategoryPanel.Visible = False
-        Else
-            TabControl.TabPages.Remove(ImageTab)
-            CategoryPanel.Visible = True
+            categoryDisplayed = False
         End If
-
     End Sub
 
     Private Sub MainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TabControl.TabPages.Remove(ImageTab)
+        DisplayCategory()
         mainWindow = New clsMainWindow
     End Sub
 
@@ -59,16 +60,17 @@
             TitleTextBox.Text = item.Text
             CreationDateTextBox.Text = item.SubItems(1).Text
             BodyTextBox.Text = item.SubItems(5).Text
-            CheckLayout(item.SubItems(4).Text)
+            CheckLayout(item)
         End If
 
     End Sub
 
-    Private Sub CheckLayout(text As String)
-        If IO.File.Exists(text) Then
-            SwitchLayout()
+    Private Sub CheckLayout(item As ListViewItem)
+
+        If mainWindow.itemIsPhoto(item) Then
+            DisplayImage()
             Try
-                Dim imageFileStream As New IO.FileStream(text, IO.FileMode.Open, IO.FileAccess.Read)
+                Dim imageFileStream As New IO.FileStream(item.SubItems(4).Text, IO.FileMode.Open, IO.FileAccess.Read)
                 Dim readInImage As Image = Image.FromStream(imageFileStream)
                 ImageBox.Image = readInImage
                 imageFileStream.Close()
@@ -76,7 +78,8 @@
                 MessageBox.Show(ex.Message)
             End Try
         Else
-            CategoryTextBox.Text = text
+            DisplayCategory()
+            CategoryTextBox.Text = item.SubItems(4).Text
         End If
     End Sub
 

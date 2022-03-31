@@ -1,5 +1,7 @@
-﻿Public Class ClsPhotos
-    Inherits NewsBaseClass
+﻿Imports System.IO
+
+Public Class ClsPhotos
+    Inherits clsNewsBase
 
     Sub New()
 
@@ -18,27 +20,56 @@
     Public Function BrowsePhoto() As String
         Dim result As DialogResult
         Using fileChooser As New OpenFileDialog
-            fileChooser.Filter = "Bitmap|*.bmp|JPEG|*.jpg|PNG|*.png"
+            fileChooser.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif"
             result = fileChooser.ShowDialog
             Photo = fileChooser.FileName
         End Using
         Return Photo
     End Function
 
-    Public Shared Sub AddPhoto(PhotoObj As ClsPhotos)
-        Dim DataPath As String = SharedConstantClass.PhotosPath & PhotoObj.getID.ToString & ".txt"
-        Dim photoPath As String = SharedConstantClass.PhotosPath & PhotoObj.getID.ToString
-        If WriteUtil.CopyFile(PhotoObj.Photo, photoPath) Then
-            PhotoObj.Photo = photoPath
-        End If
-        Dim Data As String = tofile(PhotoObj)
-        WriteUtil.WriteData(DataPath, Data)
+    Public Sub Update()
+        Dim DataPath As String = clsShared.PhotosPath & ID.ToString & ".txt"
+        copyPhoto()
+        Dim Data As String = ConvertToString(Me)
+        File.WriteAllText(DataPath, Data)
     End Sub
+    Private Sub copyPhoto()
+        Dim photoPath As String = clsShared.PhotosPath & ID.ToString & "." & Photo.Split(".").Last
+        File.Copy(Photo, photoPath)
+        Photo = photoPath
+    End Sub
+    Public Sub Read(id As Guid)
+        Dim dataPath As String = clsShared.PhotosPath & id.ToString & ".txt"
+        Dim data As String
+        data = File.ReadAllText(dataPath)
+        Parse(data)
+    End Sub
+    Public Shared Sub Delete(id As Guid)
+        Dim dir As New DirectoryInfo(clsShared.PhotosPath)
+        Dim files() As FileInfo = dir.GetFiles(id.ToString & ".*")
+        For Each fi In files
+            File.Delete(fi.FullName)
+        Next
+    End Sub
+    Public Shared Function ReadAll() As List(Of ClsPhotos)
+        Dim data As New List(Of ClsPhotos)
+        Dim id As Guid
+        Dim dir As New DirectoryInfo(clsShared.PhotosPath)
+        Dim files() As FileInfo = dir.GetFiles("*.txt")
+        Dim fi As FileInfo
+        For Each fi In files
+            Dim obj As New ClsPhotos
+            Guid.TryParse(fi.Name.Split(".")(0), id)
+            obj.Read(id)
+            data.Add(obj)
+        Next
+        Return data
+    End Function
 
-    Public Shared Function tofile(PhotoObj As ClsPhotos)
-        Dim seperator As String = SharedConstantClass.Seperator
-        Dim data As String = PhotoObj.getID.ToString & seperator &
-                        PhotoObj.getCreationTime & seperator &
+    Public Shared Function ConvertToString(PhotoObj As ClsPhotos)
+        Dim seperator As String = clsShared.Seperator
+        Dim data As String = PhotoObj.ID.ToString & seperator &
+                        PhotoObj.CreationTime & seperator &
                          PhotoObj.Title & seperator &
                          PhotoObj.Description & seperator &
                          PhotoObj.Body & seperator &
@@ -46,15 +77,13 @@
         Return data
     End Function
 
-    Public Shared Function FromFile(file As String) As ClsPhotos
-        Dim data() As String = file.Split(New String() {SharedConstantClass.Seperator}, StringSplitOptions.None)
-        Dim obj As New ClsPhotos
-        obj.setID(data(0))
-        obj.setCreationTime(data(1))
-        obj.Title = data(2)
-        obj.Description = data(3)
-        obj.Body = data(4)
-        obj.Photo = data(5)
-        Return obj
-    End Function
+    Public Sub Parse(file As String)
+        Dim data() As String = file.Split(New String() {clsShared.Seperator}, StringSplitOptions.None)
+        Guid.TryParse(data(0), ID)
+        Date.TryParse(data(1), CreationTime)
+        Title = data(2)
+        Description = data(3)
+        Body = data(4)
+        Photo = data(5)
+    End Sub
 End Class

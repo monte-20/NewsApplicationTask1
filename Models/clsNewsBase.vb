@@ -1,5 +1,5 @@
-﻿Public Class NewsBaseClass
-    Inherits BusinessBaseClass
+﻿Public Class clsNewsBase
+    Inherits clsBase
 
     Private DescriptionProp As String
     Public Property Description() As String

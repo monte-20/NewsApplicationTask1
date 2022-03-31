@@ -25,8 +25,8 @@ Partial Class frmMainWindow
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArticilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImageArticleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PhotoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -96,27 +96,27 @@ Partial Class frmMainWindow
         '
         'NewToolStripMenuItem
         '
-        Me.NewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArticilToolStripMenuItem, Me.ImageArticleToolStripMenuItem})
+        Me.NewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewsToolStripMenuItem, Me.PhotoToolStripMenuItem})
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
-        'ArticilToolStripMenuItem
+        'NewsToolStripMenuItem
         '
-        Me.ArticilToolStripMenuItem.Name = "ArticilToolStripMenuItem"
-        Me.ArticilToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
-        Me.ArticilToolStripMenuItem.Text = "Article..."
+        Me.NewsToolStripMenuItem.Name = "NewsToolStripMenuItem"
+        Me.NewsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewsToolStripMenuItem.Text = "News..."
         '
-        'ImageArticleToolStripMenuItem
+        'PhotoToolStripMenuItem
         '
-        Me.ImageArticleToolStripMenuItem.Name = "ImageArticleToolStripMenuItem"
-        Me.ImageArticleToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
-        Me.ImageArticleToolStripMenuItem.Text = "Image Article..."
+        Me.PhotoToolStripMenuItem.Name = "PhotoToolStripMenuItem"
+        Me.PhotoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PhotoToolStripMenuItem.Text = "Photo..."
         '
         'NewUserToolStripMenuItem
         '
         Me.NewUserToolStripMenuItem.Name = "NewUserToolStripMenuItem"
-        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewUserToolStripMenuItem.Text = "New User..."
         '
         'ShowToolStripMenuItem
@@ -489,8 +489,8 @@ Partial Class frmMainWindow
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ArticilToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ImageArticleToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NewsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PhotoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NewUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ShowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem

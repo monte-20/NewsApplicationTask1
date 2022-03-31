@@ -290,7 +290,7 @@ Partial Class frmNews
         Me.Controls.Add(Me.Panel1)
         Me.MinimumSize = New System.Drawing.Size(500, 500)
         Me.Name = "frmNews"
-        Me.Text = "Add Article"
+        Me.Text = "Add News"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
