@@ -73,11 +73,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\clsBase.vb" />
-    <Compile Include="Models\clsMainWindow.vb" />
-    <Compile Include="Models\clsNews.vb" />
-    <Compile Include="Models\clsPhotos.vb" />
-    <Compile Include="Models\clsUser.vb" />
     <Compile Include="frmMainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +92,6 @@
     <Compile Include="frmPhotos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\clsNewsBase.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -119,7 +113,6 @@
     <Compile Include="frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="clsShared.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMainWindow.resx">
@@ -153,6 +146,11 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FileWorxObjects\FileWorxObjects.vbproj">
+      <Project>{077d6216-5a3e-49f8-ae88-d2b2b04d50ee}</Project>
+      <Name>FileWorxObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

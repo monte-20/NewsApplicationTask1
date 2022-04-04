@@ -98,25 +98,25 @@ Partial Class frmMainWindow
         '
         Me.NewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewsToolStripMenuItem, Me.PhotoToolStripMenuItem})
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'NewsToolStripMenuItem
         '
         Me.NewsToolStripMenuItem.Name = "NewsToolStripMenuItem"
-        Me.NewsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewsToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.NewsToolStripMenuItem.Text = "News..."
         '
         'PhotoToolStripMenuItem
         '
         Me.PhotoToolStripMenuItem.Name = "PhotoToolStripMenuItem"
-        Me.PhotoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PhotoToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.PhotoToolStripMenuItem.Text = "Photo..."
         '
         'NewUserToolStripMenuItem
         '
         Me.NewUserToolStripMenuItem.Name = "NewUserToolStripMenuItem"
-        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewUserToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.NewUserToolStripMenuItem.Text = "New User..."
         '
         'ShowToolStripMenuItem

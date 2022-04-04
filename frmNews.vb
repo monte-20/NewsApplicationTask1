@@ -1,20 +1,11 @@
-﻿Public Class frmNews
-    Public Enum Category
-        General
-        Sports
-        Health
-        Politics
-    End Enum
+﻿Imports FileWorxObjects
+
+Public Class frmNews
+
 
     Private news As ClsNews
-    Private Shared categoryData As List(Of Category) = [Enum].GetValues(GetType(Category)).Cast(Of Category)().ToList()
+    Private Shared categoryData As List(Of ClsNews.Categories) = [Enum].GetValues(GetType(ClsNews.Categories)).Cast(Of ClsNews.Categories)().ToList()
 
-    Public Shared ReadOnly Property Categories() As List(Of Category)
-        Get
-            Return categoryData
-        End Get
-
-    End Property
     Sub New()
         InitializeComponent()
         CategoryCombo.DataSource = categoryData
@@ -23,12 +14,12 @@
 
     Public Sub New(news As ClsNews)
         InitializeComponent()
-        Dim categoryData As List(Of Category) = [Enum].GetValues(GetType(Category)).Cast(Of Category)().ToList()
+        Dim categoryData As List(Of ClsNews.Categories) = [Enum].GetValues(GetType(ClsNews.Categories)).Cast(Of ClsNews.Categories)().ToList()
         CategoryCombo.DataSource = categoryData
         Me.news = news
         TitleTextBox.Text = news.Title
         DescriptionTextBox.Text = news.Description
-        Dim cat = DirectCast([Enum].Parse(GetType(Category), news.Category), Category)
+        Dim cat = DirectCast([Enum].Parse(GetType(ClsNews.Categories), news.Category), ClsNews.Categories)
         CategoryCombo.SelectedIndex = categoryData.IndexOf(cat)
         BodyTextBox.Text = news.Body
     End Sub
@@ -52,7 +43,7 @@
     Private Sub SaveFormData()
         news.Title = TitleTextBox.Text
         news.Description = DescriptionTextBox.Text
-        Dim cat = DirectCast([Enum].Parse(GetType(Category), CategoryCombo.Text), Category)
+        Dim cat = DirectCast([Enum].Parse(GetType(ClsNews.Categories), CategoryCombo.Text), ClsNews.Categories)
         news.Category = cat
         news.Body = BodyTextBox.Text
 

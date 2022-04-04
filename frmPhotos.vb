@@ -1,4 +1,6 @@
-﻿Public Class frmPhotos
+﻿Imports FileWorxObjects
+
+Public Class frmPhotos
     Private photos As ClsPhotos
     Public Sub New()
         InitializeComponent()

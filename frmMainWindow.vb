@@ -1,4 +1,6 @@
-﻿Public Class frmMainWindow
+﻿Imports FileWorxObjects
+
+Public Class frmMainWindow
     Private mainWindow As clsMainWindow
     Private items As List(Of ListViewItem)
     Private categoryDisplayed As Boolean
@@ -42,7 +44,7 @@
 
     Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
         ItemList.Items.Clear()
-        showItems()
+        ShowItems()
     End Sub
 
     Private Sub ShowItems()
@@ -87,12 +89,24 @@
         If e.Button = MouseButtons.Right Or
             e.Clicks = 2 Then
             Dim item As ListViewItem = ItemList.FocusedItem
-            If mainWindow.updateItem(item) <> DialogResult.Cancel Then
+            Dim result As DialogResult = updateItem(item)
+            If result <> DialogResult.Cancel Then
+                mainWindow.RefreshData(result)
                 ShowItems()
             End If
         End If
     End Sub
+    Public Function updateItem(item As ListViewItem) As DialogResult
+        Dim result As DialogResult
+        If mainWindow.itemIsPhoto(item) Then
 
+            result = New frmPhotos(mainWindow.itemToPhoto(item)).ShowDialog
+        Else
+
+            result = New frmNews(mainWindow.itemToNews(item)).ShowDialog
+        End If
+        Return result
+    End Function
     Private Sub ItemList_KeyDown(sender As Object, e As KeyEventArgs) Handles ItemList.KeyDown
         If e.KeyCode = Keys.Delete Then
             Dim item As ListViewItem = ItemList.FocusedItem

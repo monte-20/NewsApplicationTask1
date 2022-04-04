@@ -1,4 +1,6 @@
-﻿Public Class frmUser
+﻿Imports FileWorxObjects
+
+Public Class frmUser
     Private user As ClsUser
 
     Sub New()
